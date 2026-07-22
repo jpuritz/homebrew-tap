@@ -1,6 +1,6 @@
 cask "claude-usage" do
-  version "1.1"
-  sha256 "e89b6458ab42201357c45c10d043ed6e3c352e86c8b8f7c7739b3d038673225b"
+  version "1.2"
+  sha256 "56460c160baee10eb4e85835b7b2bde658694388c5b2e36ff2a3bcecd7998d67"
 
   url "https://github.com/jpuritz/ClaudeUsageBar/releases/download/v#{version}/ClaudeUsage-menubar.zip"
   name "Claude Usage"
