@@ -1,6 +1,6 @@
 cask "claudar" do
-  version "1.8"
-  sha256 "2b051e8b10410426791a98a06bca35b4824b43b368c4dae8f0d67f52c74131f8"
+  version "1.9"
+  sha256 "3a601018593379dc2898ccd53514b78f7d1ea0de02b701e736260b1ae8af66fe"
 
   url "https://github.com/jpuritz/Claudar/releases/download/v#{version}/Claudar-menubar.zip"
   name "Claudar"
