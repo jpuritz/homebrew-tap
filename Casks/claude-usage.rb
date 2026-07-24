@@ -1,43 +1,27 @@
 cask "claude-usage" do
-  version "1.6"
-  sha256 "e61654b655b31600b84416b164092fd62c9e112260819464dfaca06368a65c42"
+  version "1.7"
+  sha256 "da6181918f44c2919acdf50e0d4a2c5a55a179ecb9b6d47cae518bcec1a7e3e0"
 
-  url "https://github.com/jpuritz/ClaudeUsageBar/releases/download/v#{version}/ClaudeUsage-menubar.zip"
-  name "Claude Usage"
-  desc "Menu bar app showing Claude usage limits"
-  homepage "https://github.com/jpuritz/ClaudeUsageBar"
+  url "https://github.com/jpuritz/Claudar/releases/download/v#{version}/Claudar-menubar.zip"
+  name "Claudar"
+  desc "Menu bar app showing Claude usage limits (renamed to claudar)"
+  homepage "https://github.com/jpuritz/Claudar"
 
-  livecheck do
-    url :url
-    strategy :github_latest
-  end
+  # Renamed to "claudar". This token keeps existing installs upgrading; new
+  # installs should use `brew install --cask jpuritz/tap/claudar`.
+  deprecate! date: "2026-07-24", because: "it was renamed to claudar"
 
+  conflicts_with cask: "jpuritz/tap/claudar"
   depends_on macos: :sonoma
 
-  app "Claude Usage.app"
+  app "Claudar.app"
 
-  uninstall quit: "com.jpuritz.claude-usage"
-
-  zap trash: [
-    "~/Library/Logs/ClaudeUsage-last-error.txt",
-    "~/Library/Preferences/com.jpuritz.claude-usage.plist",
-  ]
+  uninstall quit: "com.jpuritz.claudar"
 
   caveats <<~EOS
-    This build is ad-hoc signed (no paid Apple Developer account), so Gatekeeper
-    will block the first launch unless you either installed with:
+    This cask was renamed to "claudar". Switch with:
 
-      brew install --cask --no-quarantine jpuritz/tap/claude-usage
-
-    or clear the quarantine flag once:
-
-      xattr -dr com.apple.quarantine "/Applications/Claude Usage.app"
-
-    On first launch, click "Always Allow" when macOS asks for access to the
-    Claude Code credentials — the app reads that token to fetch your usage.
-
-    NOTE: the WidgetKit desktop widget is NOT in this build. It requires an App
-    Group entitlement that cannot be freely distributed; build from source with
-    Xcode to get it: https://github.com/jpuritz/ClaudeUsageBar#building
+      brew uninstall --cask claude-usage
+      brew install --cask --no-quarantine jpuritz/tap/claudar
   EOS
 end
