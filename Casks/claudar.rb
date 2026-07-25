@@ -25,17 +25,13 @@ cask "claudar" do
 
   caveats <<~EOS
     This build is ad-hoc signed (no paid Apple Developer account), so Gatekeeper
-    will block the first launch unless you either installed with:
-
-      HOMEBREW_CASK_OPTS=--no-quarantine brew install --cask jpuritz/tap/claudar
-
-    or clear the quarantine flag once:
+    will block the first launch until you clear the quarantine flag once:
 
       xattr -dr com.apple.quarantine "/Applications/Claudar.app"
 
-    (Homebrew 6 removed the --no-quarantine command-line flag; passing it now
-    fails with "invalid option". The environment variable above does the same
-    thing and works on older Homebrew too.)
+    (Homebrew 6 removed the --no-quarantine flag — passing it fails with
+    "invalid option" — and no longer reads HOMEBREW_CASK_OPTS on the install
+    path, so the command above is the way to do this now.)
 
     On first launch, click "Always Allow" when macOS asks for access to the
     Claude Code credentials — the app reads that token to fetch your usage. To

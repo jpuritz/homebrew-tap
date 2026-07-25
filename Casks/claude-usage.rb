@@ -22,6 +22,7 @@ cask "claude-usage" do
     This cask was renamed to "claudar". Switch with:
 
       brew uninstall --cask claude-usage
-      HOMEBREW_CASK_OPTS=--no-quarantine brew install --cask jpuritz/tap/claudar
+      brew install --cask jpuritz/tap/claudar
+      xattr -dr com.apple.quarantine "/Applications/Claudar.app"
   EOS
 end
