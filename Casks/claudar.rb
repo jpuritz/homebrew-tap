@@ -29,16 +29,16 @@ cask "claudar" do
 
       xattr -dr com.apple.quarantine "/Applications/Claudar.app"
 
-    (Homebrew 6 removed the --no-quarantine flag — passing it fails with
-    "invalid option" — and no longer reads HOMEBREW_CASK_OPTS on the install
-    path, so the command above is the way to do this now.)
+    (Homebrew 6 removed the --no-quarantine flag: passing it fails with
+    "invalid option", and the install path no longer reads HOMEBREW_CASK_OPTS
+    either, so the command above is the way to do this now.)
 
     Prefer not to run that? Just open Claudar, let macOS block it, then go to
     System Settings > Privacy & Security > Open Anyway. Same result, one time.
 
     On first launch, click "Always Allow" when macOS asks for access to the
-    Claude Code credentials — the app reads that token to fetch your usage. To
-    avoid that prompt entirely, use the app's No-Prompt Mode (menu bar).
+    Claude Code credentials. That's the token the app reads to fetch your usage.
+    To avoid the prompt entirely, use the app's No-Prompt Mode (menu bar).
 
     NOTE: the WidgetKit desktop widget is NOT in this build. It requires an App
     Group entitlement that cannot be freely distributed; build from source with
