@@ -33,6 +33,9 @@ cask "claudar" do
     "invalid option" — and no longer reads HOMEBREW_CASK_OPTS on the install
     path, so the command above is the way to do this now.)
 
+    Prefer not to run that? Just open Claudar, let macOS block it, then go to
+    System Settings > Privacy & Security > Open Anyway. Same result, one time.
+
     On first launch, click "Always Allow" when macOS asks for access to the
     Claude Code credentials — the app reads that token to fetch your usage. To
     avoid that prompt entirely, use the app's No-Prompt Mode (menu bar).
